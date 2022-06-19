@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { baseURL } from '../Api/baseApi';
 
 const Home = () => {
-    baseURL.get('all').then(({data}) => console.log(data))
+    useEffect(()=>{
+        baseURL.get('all').then(({data}) => console.log(data))
+    },[])
     return (
         <div>
 
