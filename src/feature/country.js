@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     country: null,
-    loading:false,
+    loading:true,
     error:''
 }
 
@@ -11,12 +11,11 @@ const countrySlice = createSlice({
     reducers:{
         loadCountry:(state,action)=>{
             state.country = action.payload
-            console.log(action.payload)
             state.loading= false
             state.error=""
         },
-        loading:(state,action)=>{
-            state.loading= action.error
+        loadingState:(state,action)=>{
+            state.loading= action.payload
         },
         error:(state,action)=>{
             state.error= action.error
@@ -25,4 +24,4 @@ const countrySlice = createSlice({
 })
 
 export default countrySlice.reducer
-export const { loadCountry, loading, error} = countrySlice.actions
+export const { loadCountry, loadingState, error} = countrySlice.actions
